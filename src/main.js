@@ -35,13 +35,21 @@ window.addEventListener(
   false
 );
 
-let levels = [new Level()];
+const generateBuilding = function(numberOfLevels) {
+  const levels = [];
+  for (let i = 0; i < numberOfLevels; i++) {
+    levels.push(new Level());
+  }
+  return levels;
+};
+
+let levels = generateBuilding(3);
 let currentLevel = 0;
 let visibilityType = "room";
 let takeScreenshot = false;
 
 document.getElementById("resetBtn").addEventListener("click", () => {
-  levels = [new Level()];
+  levels = generateBuilding(3);
   currentLevel = 0;
 });
 
@@ -73,7 +81,10 @@ function tick(timestamp) {
     }
   } else if (change === 1) {
     if (currentLevel === levels.length - 1) {
-      levels.push(new Level());
+      currentLevel = 0;
+      // eslint-disable-next-line no-console
+      console.log("NO MORE LEVELS");
+      //levels.push(new Level());
     }
 
     currentLevel++;
