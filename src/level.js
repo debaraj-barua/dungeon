@@ -1,6 +1,7 @@
 import Dungeon from "./dungeon";
 import keys from "./keys";
 import tiles from "./tiles";
+import Player from "./players";
 
 const { floor, abs } = Math;
 
@@ -19,13 +20,7 @@ export default class Level {
     this.tiles = this.dungeon.getFlattenedTiles();
 
     // basic player object
-    this.player = {
-      pos: { x: 0, y: 0 },
-      size: { x: 12, y: 12 },
-      speed: 175,
-      color: "#0CED13",
-      onStairs: true,
-    };
+    this.player = new Player();
 
     // place the player at the up stair case
     let stairs = this.dungeon.getStairs();
