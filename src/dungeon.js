@@ -12,7 +12,7 @@ export default class Dungeon {
 
     this.minRoomSize = 5;
     this.maxRoomSize = 15;
-    this.maxNumRooms = 50;
+    this.maxNumRooms = 5;
     this.maxRoomArea = 150;
 
     this.addStairsUp = true;
